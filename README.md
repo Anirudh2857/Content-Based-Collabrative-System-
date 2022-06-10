@@ -1,1 +1,1 @@
-# Content-Based-Collabrative-System-
+The above code is for a content based filtering system on the netflix movie recommendation system. Used Cosine similarity to find the similarity between the movies. Used Natural Language Processing as the dataset contained words. 
