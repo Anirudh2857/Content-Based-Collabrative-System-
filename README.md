@@ -1,23 +1,56 @@
-This project implements a content-based recommendation system using the Netflix dataset. The system analyzes the similarity between movies based on their genres, release year and cast, and recommends similar movies to users.
+# Netflix Content Filtering and Analysis
 
-**Dataset**
+## Overview
+This project performs data processing, visualization, and content-based filtering for Netflix titles. The dataset includes various movie and TV show attributes such as title, director, cast, genre, description, and release date. The goal is to explore the dataset, visualize content distribution, and build a recommendation system based on text similarity.
 
-The dataset used in this project is the Netflix Prize dataset, which includes over 100 million movie ratings from around 480,000 users. The dataset was originally released as part of a competition by Netflix in 2006 to improve their recommendation system.
+## Features
+- Loads and processes Netflix titles dataset.
+- Cleans and preprocesses data by handling missing values and extracting date features.
+- Visualizes dataset distributions, including content type counts and yearly additions.
+- Implements a content-based filtering system using:
+  - Keyword extraction with `rake-nltk`
+  - Text vectorization using `CountVectorizer`
+  - Cosine similarity for content recommendations
 
-The dataset is not publicly available, but it can be obtained by signing up to the Netflix Prize competition website and agreeing to the terms of use.
+## Requirements
+Install the necessary dependencies using:
 
-**Approach**
+```bash
+pip install numpy pandas matplotlib seaborn plotly scikit-learn rake-nltk nltk
+```
 
-The system implements a content-based approach to recommend movies to users. This approach analyzes the features of movies and recommends similar movies to users based on their past ratings and preferences.
+## File Structure
+- `netflix_titles.csv` - CSV file containing Netflix content metadata.
+- `content_filtering.ipynb` - Jupyter Notebook for data processing and recommendation system.
 
-The system first preprocesses the Netflix dataset by filtering out movies that have less than 100 ratings and users who have rated less than 10 movies. This reduces the size of the dataset and improves the quality of the recommendations.
+## How to Run
+1. Ensure the `netflix_titles.csv` file is in the working directory.
+2. Open the Jupyter Notebook and execute the cells step by step.
+3. The notebook will generate visualizations and recommendations based on the dataset.
 
-The system then extracts the genres, release year and cast information from the movie titles using regular expressions. This information is used to create feature vectors for each movie, which are then used to compute the similarity between movies.
+## Explanation of Key Functions
+### `bold(string)`
+Displays bold text output in Markdown format.
 
-The similarity between movies is calculated using the cosine similarity metric, which measures the angle between two feature vectors. The closer the angle, the higher the similarity between the movies.
+### `pie_plot(cnt_srs, title)`
+Generates a pie chart using Plotly.
 
-Finally, the system recommends similar movies to users based on their past ratings and preferences. The recommendations are ranked based on their similarity score and presented to the user.
+### `load_data()`
+Loads and preprocesses the dataset by handling missing values and extracting date features.
 
-**Conclusion**
+### `generate_visualizations()`
+Creates various visualizations to analyze Netflix content distribution.
 
-This project implements a content-based recommendation system using the Netflix dataset. The system analyzes the similarity between movies based on their genres, release year and cast, and recommends similar movies to users. This approach can be useful in situations where there is limited user data available or where the recommendation system needs to be based on the characteristics of the items being recommended.
+### `content_filtering()`
+Performs content-based filtering by:
+- Extracting keywords from descriptions.
+- Vectorizing text data.
+- Calculating cosine similarity to recommend similar content.
+
+## Output
+- Dataset visualizations showcasing trends in Netflix content.
+- A recommendation system suggesting similar titles based on content attributes.
+
+## License
+This project is open-source and can be used for educational and research purposes.
+
